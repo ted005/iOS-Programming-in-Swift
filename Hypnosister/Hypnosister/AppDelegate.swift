@@ -21,15 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: frame)
         
         var hypnoView = HypnosisView(frame: frame)
-        hypnoView.backgroundColor = UIColor.redColor()
+//        hypnoView.backgroundColor = UIColor.redColor()
         
-        var frame2 = CGRectMake(50, 100, 300, 500)
-        var hypnoView2 = HypnosisView(frame: frame2)
-        hypnoView2.backgroundColor = UIColor.blueColor()
-        
-        hypnoView.addSubview(hypnoView2)
+//        var frame2 = CGRectMake(50, 100, 300, 500)
+//        var hypnoView2 = HypnosisView(frame: frame2)
+//        hypnoView2.backgroundColor = UIColor.blueColor()
+//        
+//        hypnoView.addSubview(hypnoView2)
         
         window!.addSubview(hypnoView)
+        window!.backgroundColor = UIColor.whiteColor()
         window!.makeKeyAndVisible()
         
         return true
