@@ -38,6 +38,11 @@ class HypnosisView :  UIView{
         
         beierPath.stroke()
         
+        //draw image
+        let img = UIImage(named: "t2.jpg")
+        var imgRect = CGRect(x: 50, y: 50, width: 100, height: 100)
+        img?.drawInRect(imgRect)
+        
     }
     
     override init(frame: CGRect) {
