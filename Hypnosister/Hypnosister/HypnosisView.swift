@@ -43,6 +43,22 @@ class HypnosisView :  UIView{
         var imgRect = CGRect(x: 50, y: 50, width: 100, height: 100)
         img?.drawInRect(imgRect)
         
+        //draw line using Core Graphics
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetRGBStrokeColor(context, 1, 0, 0, 1)
+        var path = CGPathCreateMutable()
+        CGPathMoveToPoint(path, nil, 10, 30)
+        CGPathAddLineToPoint(path, nil, 50, 100)
+        
+        CGContextAddPath(context, path)
+        CGContextStrokePath(context)
+        
+        //no need to release path?
+        
+        
+        
+        
     }
     
     override init(frame: CGRect) {
