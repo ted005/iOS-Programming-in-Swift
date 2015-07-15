@@ -38,13 +38,18 @@ class HypnosisView :  UIView{
         
         beierPath.stroke()
         
+        //**image and line have shadow effect**
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSaveGState(context)
+        CGContextSetShadow(context, CGSize(width: 5, height: 5), CGFloat(1.0))
+        
         //draw image
         let img = UIImage(named: "t2.jpg")
         var imgRect = CGRect(x: 50, y: 50, width: 100, height: 100)
-        img?.drawInRect(imgRect)
+        img!.drawInRect(imgRect)
         
         //draw line using Core Graphics
-        let context = UIGraphicsGetCurrentContext()
         
         CGContextSetRGBStrokeColor(context, 1, 0, 0, 1)
         var path = CGPathCreateMutable()
@@ -56,8 +61,8 @@ class HypnosisView :  UIView{
         
         //no need to release path?
         
-        
-        
+        //**restore context, there will be no shadow afterwards
+        CGContextRestoreGState(context)
         
     }
     
