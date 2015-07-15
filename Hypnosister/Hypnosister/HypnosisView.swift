@@ -9,6 +9,8 @@
 import UIKit
 
 class HypnosisView :  UIView{
+    
+    var circleColor: UIColor
  
     override func drawRect(rect: CGRect) {
         var selfBounds: CGRect = self.bounds
@@ -34,7 +36,8 @@ class HypnosisView :  UIView{
         
         beierPath.lineWidth = 10
         
-        UIColor.lightGrayColor().setStroke()//Sets the color of subsequent stroke operations
+//        UIColor.lightGrayColor().setStroke()//Sets the color of subsequent stroke operations
+        circleColor.setStroke() //using property circleColor to draw
         
         beierPath.stroke()
         
@@ -67,15 +70,35 @@ class HypnosisView :  UIView{
     }
     
     override init(frame: CGRect) {
+        //Swift requires that you assign values to all properties of a class before you call the initializer of its superclass.
+        circleColor = UIColor.redColor()
+        
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
+        
         
     }
 
     required init(coder aDecoder: NSCoder) {
+        circleColor = UIColor.redColor()
+
         super.init(coder: aDecoder)
     }
     
+    //UIView
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        print("Circle is being touched.")
+        
+        //arc4random()%100-->0...100
+        var red = (arc4random()%100)/100
+        var green = (arc4random()%100)/100
+        var blue = (arc4random()%100)/100
+        
+        var randomColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+        circleColor = randomColor
+        setNeedsDisplay()
+        
+    }
     
 
 
