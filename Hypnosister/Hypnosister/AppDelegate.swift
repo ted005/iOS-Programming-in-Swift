@@ -20,7 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var frame: CGRect = UIScreen.mainScreen().bounds
         window = UIWindow(frame: frame)
         
-        var hypnoView = HypnosisView(frame: frame)
+        var bigFrame = frame
+        bigFrame.size.width *= 2
+        bigFrame.size.height *= 2
+        
+        var scrollView = UIScrollView(frame: frame)
+        
+        var hypnoView = HypnosisView(frame: bigFrame)
 //        hypnoView.backgroundColor = UIColor.redColor()
         
 //        var frame2 = CGRectMake(50, 100, 300, 500)
@@ -29,7 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
 //        hypnoView.addSubview(hypnoView2)
         
-        window!.addSubview(hypnoView)
+        window!.addSubview(scrollView)
+        scrollView.addSubview(hypnoView)
+        
+        //important
+        scrollView.contentSize = CGSize(width: bigFrame.width, height: bigFrame.height)
+        
+        
         window!.backgroundColor = UIColor.whiteColor()
         window!.makeKeyAndVisible()
         

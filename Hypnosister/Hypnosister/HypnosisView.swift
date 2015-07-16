@@ -13,6 +13,7 @@ class HypnosisView :  UIView{
     var circleColor: UIColor
  
     override func drawRect(rect: CGRect) {
+        //self frame
         var selfBounds: CGRect = self.bounds
         
         var center = CGPoint() //CGPoint is struct
