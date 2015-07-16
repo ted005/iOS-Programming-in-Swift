@@ -26,7 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var scrollView = UIScrollView(frame: frame)
         
-        var hypnoView = HypnosisView(frame: bigFrame)
+        var hypnoView = HypnosisView(frame: frame)
+        
+        var frameForView2 = CGRect(x: frame.origin.x + frame.width, y: frame.origin.y, width: frame.width, height: frame.height)
+        var hypnoView2 = HypnosisView(frame: frameForView2)
+        
 //        hypnoView.backgroundColor = UIColor.redColor()
         
 //        var frame2 = CGRectMake(50, 100, 300, 500)
@@ -37,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window!.addSubview(scrollView)
         scrollView.addSubview(hypnoView)
+        scrollView.addSubview(hypnoView2)
+        
+        //paging
+        scrollView.pagingEnabled = true
         
         //important
         scrollView.contentSize = CGSize(width: bigFrame.width, height: bigFrame.height)
